@@ -94,9 +94,8 @@ public class StandardProcessOperations implements ProcessOperations
     private ProcessBuilder buildZkServerScript(String operation) throws IOException
     {
         Details         details = new Details(exhibitor);
-        File            binDirectory = new File(details.zooKeeperDirectory, "bin");
-        File            zkServerScript = new File(binDirectory, "zkServer.sh");
-        return new ProcessBuilder(zkServerScript.getAbsolutePath(), operation).directory(binDirectory.getParentFile());
+        File            zkServerScript = new File("/usr/sbin/zkServer.sh");
+        return new ProcessBuilder(zkServerScript.getAbsolutePath(), operation).directory(details.zooKeeperDirectory);
     }
 
     @Override
@@ -232,8 +231,7 @@ public class StandardProcessOperations implements ProcessOperations
     private void internalKill(String pid, boolean force) throws IOException, InterruptedException
     {
         Details         details = new Details(exhibitor);
-        File            binDirectory = new File(details.zooKeeperDirectory, "bin");
-        File            zkServerScript = new File(binDirectory, "zkServer.sh");
+        File            zkServerScript = new File("/usr/sbin/zkServer.sh");
         ProcessBuilder builder;
         buildZkServerScript("start");
         builder = force ? new ProcessBuilder("kill", "-9", pid) : buildZkServerScript("stop");

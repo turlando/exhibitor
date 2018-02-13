@@ -47,14 +47,14 @@ class Details
     {
         InstanceConfig config = exhibitor.getConfigManager().getConfig();
 
-        this.zooKeeperDirectory = getZooKeeperDirectory(config);
+        this.zooKeeperDirectory = new File("/usr/share/zookeeper");
         this.dataDirectory = new File(config.getString(StringConfigs.ZOOKEEPER_DATA_DIRECTORY));
 
         String      logDirectory = config.getString(StringConfigs.ZOOKEEPER_LOG_DIRECTORY);
         this.logDirectory = (logDirectory.trim().length() > 0) ? new File(logDirectory) : this.dataDirectory;
 
-        configDirectory = new File(zooKeeperDirectory, "conf");
-        logPaths = findJar(new File(zooKeeperDirectory, "lib"), "(.*log4j.*)|(.*slf4j.*)");
+        configDirectory = new File("/etc/zookeeper");
+        logPaths = findJar(this.zooKeeperDirectory, "(.*log4j.*)|(.*slf4j.*)");
         zooKeeperJarPath = findJar(this.zooKeeperDirectory, "zookeeper.*");
 
         properties = new Properties();
