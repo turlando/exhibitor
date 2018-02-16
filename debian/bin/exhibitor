@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if [ $# -gt 0 ]; then
+   ARGS=$@
+else
+    . /etc/default/exhibitor
+    ARGS=${EXHIBITOR_ARGS}
+fi
+
+java -jar /usr/libexec/exhibitor.jar ${ARGS}

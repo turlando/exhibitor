@@ -1,0 +1,3 @@
+exhibitor.jar usr/libexec
+debian/bin/exhibitor usr/bin
+debian/conf/exhibitor.cfg etc/exhibitor

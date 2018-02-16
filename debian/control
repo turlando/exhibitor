@@ -1,0 +1,15 @@
+Source: exhibitor
+Section: network
+Priority: extra
+Maintainer: Tancredi Orlando <tancredi.orlando@gmail.com>
+Build-Depends: debhelper, dh-systemd, java8-sdk-headless
+Standards-Version: 1.7.0
+Homepage: https://github.com/soabase/exhibitor
+Vcs-Git: https://github.com/soabase/exhibitor.git
+Vcs-Browser: https://github.com/soabase/exhibitor.git
+
+Package: exhibitor
+Architecture: all
+Depends: java8-runtime-headless, zookeeper
+Description: ZooKeeper co-process for instance monitoring,
+ backup/recovery, cleanup and visualization.

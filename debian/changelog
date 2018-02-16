@@ -1,0 +1,17 @@
+exhibitor (1.7.0-1) stable; urgency=low
+
+  * Added command line option to specify address for HTTP server to listen on
+  * Restore all backups upon starting
+  * Fixed a bug in servo where Zookeeper metrics were not reset to 0
+  * Support relative path to ZooKeeper
+
+ -- Tancredi Orlando <tancredi.orlando@gmail.com>  Fri, 16 Feb 2018 13:30:00 +0100
+
+exhibitor (1.6.0-1) stable; urgency=low
+
+  * First release since migration out from Netflix to Soabase, new group ID io.soabase.exhibitor
+  * Add support for Consul shared configuration
+  * Ported to maven
+  * AWS SDK version to 1.11.128 (from 1.10.24)
+
+ -- Tancredi Orlando <tancredi.orlando@gmail.com>  Sun, 14 Jan 2018 22:00:00 +0100

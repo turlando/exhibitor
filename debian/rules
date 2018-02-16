@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+override_dh_strip_nondeterminism:
+	@echo "skipping dh_strip_nondeterminism"
+
+override_dh_auto_build:
+	mvn clean package -DskipTests
+	cp exhibitor-standalone/target/exhibitor-standalone-*-SNAPSHOT.jar exhibitor.jar
+
+%:
+	dh $@ --with systemd
